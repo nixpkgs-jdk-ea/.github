@@ -1,3 +1,17 @@
-= nixpkgs-jdk-ea GitHub Organization README
+= Welcome to nixpkgs-jdk-ea
 
-Hello world!
+This GitHub Organization is a home for JDK EA pkgs for Nix. It contains a fork of https://github.com/NixOS/nixpkgs[nixos/nixpkgs].
+
+The main repository is https://github.com/nixpkgs-jdk-ea/nixpkgs[nixpkgs-jdk-ea/nixpkgs]
+
+The currently targeted EA release is **JDK 25 EA** and the currently available EA JDKs are:
+
+|===
+|JDK |Package Name |Branch |Upstream PR
+
+|GraalVM 25 EA
+|graalvmPackages.graalvm-oracle_25-ea
+|https://github.com/nixpkgs-jdk-ea/nixpkgs/tree/msgilligan/graalvm-oracle-25ea[msgilligan/graalvm-oracle-25ea]
+|PR https://github.com/NixOS/nixpkgs/pull/430508[#430508]
+|===
+

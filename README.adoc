@@ -1,3 +1,3 @@
-= nixpkgs-jdk-ea GitHub Organization README
+= nixpkgs-jdk-ea .github Repository
 
-Hello world!
+This currently includes only `.profile/README.adoc` <<profile/README.adoc#,profile/README.adoc>> that is included on https://github.com/nixpkgs-jdk-ea[nixpkgs-jdk-ea GitHub Organization Page].
