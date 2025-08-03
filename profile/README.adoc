@@ -19,6 +19,6 @@ To test the GraalVM 25 EA JDK build from this project, you _should_ be able to u
 
 [source, bash]
 ----
-NIXPKGS_ALLOW_UNFREE=1 nix shell --impure github:nixpkgs-jdk-ea/nixpkgs#graalvmPackages.graalvm-oracle_25-ea
+NIXPKGS_ALLOW_UNFREE=1 nix shell --impure github:nixpkgs-jdk-ea/nixpkgs?ref=msgilligan/graalvm-oracle-25ea#graalvmPackages.graalvm-oracle_25-ea
 ----
 
