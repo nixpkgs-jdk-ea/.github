@@ -4,7 +4,15 @@ This GitHub Organization is a home for JDK EA pkgs for Nix. It contains a fork o
 
 The main repository is https://github.com/nixpkgs-jdk-ea/nixpkgs[nixpkgs-jdk-ea/nixpkgs]
 
-The currently targeted EA release is **JDK 25 EA** and the currently available EA JDKs are:
+The currently targeted EA release is **JDK 25 EA** and the currently available EA JDKs are listed below.
+
+Once the JDK packages in Nixpkgs are updated to "General Availability" releases the EA releases in this repository will be removed. Depending upon interest and contributions from others, we may do the same thing for JDK 26 EA releases.
+
+Branch jdk-ea-25 of https://github.com/nixpkgs-jdk-ea/nixpkgs[nixpkgs-jdk-ea/nixpkgs] is an integration branch that will make available one or more JDK packages and possibly updates to build tools like Gradle that support those JDKs.
+
+Currently the only JDK available here is `graalvm-oracle`, but we expect to add `temurin-bin` shortly. These packages were chosen because they provide binary early-access downloads that we can package with modifications to the existing packaging scripts in Nixpkgs.
+
+Note that `graalvm-oracle` has an unfree license. Unfortunately, binary release downloads of `graalvm-ce` EA 25 are not available upstream.
 
 |===
 |JDK |Package Name |Branch |Upstream PR
@@ -15,10 +23,10 @@ The currently targeted EA release is **JDK 25 EA** and the currently available E
 |PR https://github.com/NixOS/nixpkgs/pull/430508[#430508]
 |===
 
-To test the GraalVM 25 EA JDK build from this project, you _should_ be able to use:
+To test the GraalVM 25 EA JDK build from this project, you can use:
 
 [source, bash]
 ----
-NIXPKGS_ALLOW_UNFREE=1 nix shell --impure github:nixpkgs-jdk-ea/nixpkgs?ref=msgilligan/graalvm-oracle-25ea#graalvmPackages.graalvm-oracle_25-ea
+NIXPKGS_ALLOW_UNFREE=1 nix shell --impure github:nixpkgs-jdk-ea/nixpkgs/jdk-ea-25#graalvmPackages.graalvm-oracle_25-ea
 ----
 
