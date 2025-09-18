@@ -7,26 +7,33 @@ The main repository for this Organization/Project is https://github.com/nixpkgs-
 The default branch `jdk-ea-25` of https://github.com/nixpkgs-jdk-ea/nixpkgs[nixpkgs-jdk-ea/nixpkgs] is an integration branch that will make available one or more JDK packages and updates to build tools like **Gradle** that support those JDKs.
 
 == JDK Packages 
-The currently targeted EA release is **JDK 25 EA** and the currently available EA JDKs are listed below.
 
 As of 2025-09-16 **JDK 25 is GA** (General Available), but this `jdk-ea-25` will continue to be maintained for a little while longer as follows:
 
-* Nixpkgs `master` will be periodically merged to this branch. This means GA versions of 25 will show up and replace EA versions.
-* The Gradle 9.1.0-rc-4 patch will continue to be present until Gradle 9 GA is merged.
+* Nixpkgs `master` will be periodically merged to this branch.
+* The Gradle 9.1.0 patch will continue to be updated until Gradle 9.1.0 GA is merged.
 
-NOTE:: Currently **there are no JDKs here that are not available on Nixpkgs**, because `graalvmPackages.graalvm-oracle_25` was merged to Nixpkgs `master` via PR https://github.com/NixOS/nixpkgs/pull/443470[#443470].
+You can check the current status of JDK 25 support in Nixpkgs by viewing the https://github.com/NixOS/nixpkgs/issues/430389[Java 25 Support Tracking Issue]
 
 Depending upon interest and contributions from others, we may do the same thing for JDK 26 EA releases.
-
-We expect to add `temurin-bin` next. `graalvmPackages.graalvm-oracle_25-ea` and `temurin-bin` were chosen because they provide binary early-access downloads. Be aware that `graalvm-oracle` has an unfree license. Unfortunately, binary release downloads of `graalvm-ce` EA 25 are not available upstream.
 
 |===
 |JDK |Package Name |Branch |Upstream PR
 
-|Oracle GraalVM
-|graalvmPackages.graalvm-oracle_25
+|Zulu
+|zulu25
 |merged
-|PR https://github.com/NixOS/nixpkgs/pull/443470[#443470]
+|PR :  https://nixpk.gs/pr-tracker.html?pr=443517[#443517]
+
+|GraalVM CE
+|graalvmPackages.graalvm-ce (25)
+|merged
+|PR : https://nixpk.gs/pr-tracker.html?pr=444049[#444049]
+
+|Oracle GraalVM
+|graalvmPackages.graalvm-oracle (25)
+|merged
+|PR https://nixpk.gs/pr-tracker.html?pr=443470[#443470]
 |===
 
 == Other Packages
@@ -37,7 +44,7 @@ The `jdk-ea-25` branch will also contain other packages such as build tools like
 |Package Name |Version |Branch |Upstream PR
 
 |gradle_9
-|9.1.0-rc-4
+|9.1.0
 |`msgilligan/gradle-9.1.0`
 |PR https://github.com/NixOS/nixpkgs/pull/434086[#434086]
 |===
@@ -50,10 +57,10 @@ To test the GraalVM 25 JDK build from this project, you can use:
 
 [source, bash]
 ----
-NIXPKGS_ALLOW_UNFREE=1 nix shell --impure github:nixpkgs-jdk-ea/nixpkgs/jdk-ea-25#graalvmPackages.graalvm-oracle_25
+nix shell github:nixpkgs-jdk-ea/nixpkgs/jdk-ea-25#graalvmPackages.graalvm-ce
 ----
 
-NOTE:: Because PR https://github.com/NixOS/nixpkgs/pull/434086[#434086] was merged, you can now use a similar command on the upstream Nixpkgs `master` and soon on `nixpkgs-unstable`.
+NOTE:: Because PR https://github.com/NixOS/nixpkgs/pull/444049[#444049] was merged, you can now use a similar command on the upstream Nixpkgs `master` and soon on `nixpkgs-unstable`.
 
 === Using Gradle 9.1
 
@@ -64,12 +71,12 @@ nix shell github:nixpkgs-jdk-ea/nixpkgs/jdk-ea-25#gradle_9
 
 === Building Java 25 code with Gradle 9.1 + GraalVM JDK 25
 
-You'll need to add use the following override in your nix configuration (e.g. devshell in `flake.nix`) to run Gradle with the newer JDK:
+You'll need to use the following override in your nix configuration (e.g. devshell in `flake.nix`) to run Gradle with the newer JDK:
 
 [source]
 ----
   (gradle_9.override {
-      java = graalvmPackages.graalvm-oracle_25;
+      java = graalvmPackages.graalvm-ce;
    })
 ----
 
