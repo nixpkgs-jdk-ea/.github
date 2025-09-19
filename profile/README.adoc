@@ -4,18 +4,15 @@ This GitHub Organization is a home for JDK EA pkgs for Nix. It contains a fork o
 
 The main repository for this Organization/Project is https://github.com/nixpkgs-jdk-ea/nixpkgs[nixpkgs-jdk-ea/nixpkgs]
 
-The default branch `jdk-ea-25` of https://github.com/nixpkgs-jdk-ea/nixpkgs[nixpkgs-jdk-ea/nixpkgs] is an integration branch that will make available one or more JDK packages and updates to build tools like **Gradle** that support those JDKs.
+The default branch `jdk-ea-25` of https://github.com/nixpkgs-jdk-ea/nixpkgs[nixpkgs-jdk-ea/nixpkgs] is an integration branch that makes available several JDK packages and updates to build tools like **Gradle** that support those JDKs.
 
 == JDK Packages 
 
-As of 2025-09-16 **JDK 25 is GA** (General Available), but this `jdk-ea-25` will continue to be maintained for a little while longer as follows:
-
-* Nixpkgs `master` will be periodically merged to this branch.
-* The Gradle 9.1.0 patch will continue to be updated until Gradle 9.1.0 GA is merged.
+As of 2025-09-19 **JDK 25 is GA** (General Available) and at least three Java 25 JDKs have been merged to Nixpkgs `master`. This repository will be inactive until we decide to begin work on integrating EA builds of future JDKs.
 
 You can check the current status of JDK 25 support in Nixpkgs by viewing the https://github.com/NixOS/nixpkgs/issues/430389[Java 25 Support Tracking Issue]
 
-Depending upon interest and contributions from others, we may do the same thing for JDK 26 EA releases.
+Depending upon interest and contributions from others, we may do the same thing for JDK 26 EA releases. Or perhaps we will wait until the next LTS version, JDK 29.
 
 |===
 |JDK |Package Name |Branch |Upstream PR
@@ -46,7 +43,7 @@ The `jdk-ea-25` branch will also contain other packages such as build tools like
 |gradle_9
 |9.1.0
 |`msgilligan/gradle-9.1.0`
-|PR https://github.com/NixOS/nixpkgs/pull/434086[#434086]
+|PR https://nixpk.gs/pr-tracker.html?pr=434086[#434086]
 |===
 
 == Getting Started
